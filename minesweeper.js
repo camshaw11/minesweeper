@@ -13,8 +13,6 @@ let failSound = document.getElementById("bomb-audio");
 let markSound = document.getElementById("mark-audio");
 let winSound = document.getElementById("win-audio");
 
-console.log(failSound)
-console.log(clickSound)
 
 
 // listen for clicks on the reset button and run function
