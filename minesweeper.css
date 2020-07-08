@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 html, body {
-  height: 100%;
+  /* height: 100%; */
   font-family: 'Open Sans', sans-serif
 }
 
 body {
   display: flex;
   align-items: center;
-  justify-content: flex-center;
+  justify-content: center;
   flex-direction: column;
   background-color: coral;
 }
@@ -26,6 +26,9 @@ body {
 p {
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
+  font-size: 2em;
+  color: white;
+  text-shadow: 0px 1px 1px #3a2d2d;
 }
 
 .board {
@@ -34,7 +37,7 @@ p {
 }
 
 .board div {
-  color: green;
+  color: white;
   font-size: 2rem;
   width: 75px;
   height: 75px;
@@ -61,7 +64,7 @@ p {
 }
 
 div.mine, div.mine:hover {
-  background: no-repeat center/60% url("images/bomb.svg") rgb(255, 71, 108);
+  background: no-repeat center/60% url("images/bomb.svg") rgb(240, 129, 151);
 }
 
 div.hidden {
@@ -73,16 +76,39 @@ div.hidden:hover {
 }
 
 div.marked, div.marked:hover {
-  background: no-repeat center/60% url("images/mark.svg") deepskyblue;
+  background: no-repeat center/60% url("images/mark.svg") #77d3f2;
 }
 
 .button-container {
   margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .reset {
-  padding: 1em 1em;
+  padding: 0.5em 1em;
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
-  /* border-radius: 10%; */
+  background-color: #EEEEEE;
+  border: none;
+  box-shadow: 0px 4px 0px 0px #3a2d2d;
+  margin: 1em;
+}
+
+.reset:hover {
+  background-color: #cecbcb;
+}
+
+.reset:active {
+  box-shadow: inset 0px 0px 1px 1px #3a2d2d;
+}
+
+.reset:focus {
+  outline: 0;
+}
+
+.info {
+  font-size: 0.9em;
 }
