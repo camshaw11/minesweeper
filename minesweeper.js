@@ -2,107 +2,67 @@ document.addEventListener('DOMContentLoaded', startGame);
 document.addEventListener("click", checkForWin);
 document.addEventListener("contextmenu", checkForWin);
 
-const resetBtn = document.querySelector("#message");
+const resetBtn = document.querySelector(".reset");
+const boardDiv = document.querySelector(".board");
+
+let clickSound = new Audio("/audio/click.wav");
+let failSound = new Audio("/audio/bomb.mp3");
+let markSound = new Audio("/audio/mark.wav");
 
 
-console.log(resetBtn);
-resetBtn.addEventListener("click", startGame);
+resetBtn.addEventListener("click", function() {
+  board = {};
+  boardDiv.innerHTML = "";
+  console.log(boardDiv);
+  console.log("clicked");
+  startGame(board);
+});
+
+
+// define board object
+let board = {};
+
+// initial grid size
+// let grid = 6;
 
 
 
+function makeBoard() {
 
-// Define your `board` object here!
-// var board = {
-//   cells: [
-//     {
-//       row: 0,
-//       col: 0,
-//       isMine: true,
-//       hidden: true
-//     },
-//     {
-//       row: 0,
-//       col: 1,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 0,
-//       col: 2,
-//       isMine: true,
-//       hidden: true
-//     },
-//     {
-//       row: 1,
-//       col: 0,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 1,
-//       col: 1,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 1,
-//       col: 2,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 2,
-//       col: 0,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 2,
-//       col: 1,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 2,
-//       col: 2,
-//       isMine: false,
-//       hidden: true
-//     }
-//   ]
-// }
+  // initialize empty array called cells
+  board.cells = [];
 
 
-var board = {
-  cells: []
-}
+  // initial grid size
+  let grid = 6;
 
-let grid = 6;
-
-// every time this runs once, the inner loop runs 3 times, giving our grid shape
-// ex. row 0 = col 1, 2, 3
-for (let i = 0; i < grid; i++) {
-  for(let z = 0; z < grid; z++) {
-      let cell = {
-        row: i,
-        col: z,
-        isMine: Math.random() >= 0.8,
-        isMarked: false,
-        hidden: true
-      }
-    board.cells.push(cell);
+  // every time the outer loop runs once, the inner loop runs 3 times, giving our grid shape
+  // ex. row 0 = col 1, 2, 3
+  for (let i = 0; i < grid; i++) {
+    for(let z = 0; z < grid; z++) {
+        let cell = {
+          row: i,
+          col: z,
+          isMine: Math.random() >= 0.8,
+          isMarked: false,
+          hidden: true
+        }
+      // push new object to cells array
+      board.cells.push(cell);
+    }
   }
 }
 
-console.log(board)
 
 
 function startGame () {
+
+  makeBoard();
+
   for (let i = 0; i < board.cells.length; i++) {
     board.cells[i].surroundingMines = countSurroundingMines(board.cells[i]);
     board.cells[i].isMarked = false;
   }
-
-  // console.log(board)
   
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
@@ -113,6 +73,8 @@ function startGame () {
 // 1. Are all of the cells that are NOT mines visible?
 // 2. Are all of the mines marked?
 function checkForWin () {
+
+  // myPlay();
 
   let test = true;
 
@@ -156,5 +118,12 @@ function countSurroundingMines (cell) {
   return count;
 }
 
-
-
+boardDiv.addEventListener("mousedown", function(e){
+  if(e.button === 0 && e.target.classList.contains("mine")) {
+    failSound.play();
+  } else if (e.button === 2) {
+    markSound.play();
+  } else {
+    clickSound.play();
+  }
+})

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 html, body {
   height: 100%;
   font-family: 'Open Sans', sans-serif
@@ -8,6 +10,7 @@ body {
   align-items: center;
   justify-content: flex-center;
   flex-direction: column;
+  background-color: coral;
 }
 
 #message, #notes {
@@ -20,6 +23,11 @@ body {
   font-size: 1.5rem;
 }
 
+p {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
 .board {
   display: flex;
   flex-wrap: wrap;
@@ -30,21 +38,30 @@ body {
   font-size: 2rem;
   width: 75px;
   height: 75px;
-  border: 1px #ccc dotted;
+  /* border: 1px #ccc solid; */
   border-radius: 10%;
-  background-color: white;
-  margin: 3px;
+  background-color: #bdbdbd33;
+  margin: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* box-shadow: inset -1px 0px 43px 12px #ff7f50; */
+
 }
 
 .board div:hover {
-  background-color: white;
+  /* background-color: #ff7f50; */
+  /* box-shadow: inset -1px 0px 43px 12px #ff7f50; */
+  box-shadow: inset 0px 0px 5px 1px #3a2d2d;
+}
+
+.clicked {
+  box-shadow: inset 0px 0px 5px 1px #3a2d2d;
+
 }
 
 div.mine, div.mine:hover {
-  background: no-repeat center/60% url("images/bomb.svg") crimson;
+  background: no-repeat center/60% url("images/bomb.svg") rgb(255, 71, 108);
 }
 
 div.hidden {
@@ -65,4 +82,7 @@ div.marked, div.marked:hover {
 
 .reset {
   padding: 1em 1em;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  /* border-radius: 10%; */
 }
