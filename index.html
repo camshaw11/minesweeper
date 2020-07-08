@@ -10,6 +10,12 @@
   <body>
     <div id="message"></div>
     <div id="notes">
+      <audio>
+        <source src="audio/click.wav"></source>
+        <source src="audio/bomb.mp3"></source>
+        <source src="audio/mark.wav"></source>
+        <source src="audio/win.wav"></source>
+      </audio>
     </div>
     <div class="board"></div>
     <div class="button-container">
@@ -22,3 +28,9 @@
     <script src="minesweeper.js"></script>
   </body>
 </html>
+
+
+let clickSound = new Audio("/audio/click.wav");
+let failSound = new Audio("/audio/bomb.mp3");
+let markSound = new Audio("/audio/mark.wav");
+let winSound = new Audio("/audio/win.wav");
