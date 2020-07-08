@@ -8,10 +8,13 @@ const resetBtn = document.querySelector(".reset");
 const boardDiv = document.querySelector(".board");
 
 // sound effects
-let clickSound = document.getElementsByTagName("audio")[0];
-let failSound = document.getElementsByTagName("audio")[1];
-let markSound = document.getElementsByTagName("audio")[2];
-let winSound = document.getElementsByTagName("audio")[3];
+let clickSound = document.getElementById("click-audio");
+let failSound = document.getElementById("bomb-audio");
+let markSound = document.getElementById("mark-audio");
+let winSound = document.getElementById("win-audio");
+
+console.log(failSound)
+console.log(clickSound)
 
 
 // listen for clicks on the reset button and run function

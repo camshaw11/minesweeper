@@ -10,12 +10,16 @@
   <body>
     <div id="message"></div>
     <div id="notes">
-      <audio>
-        <source src="audio/click.wav"></source>
-        <source src="audio/bomb.mp3"></source>
-        <source src="audio/mark.wav"></source>
-        <source src="audio/win.wav"></source>
-      </audio>
+      <!-- <audio>
+        <source src="audio/click.wav" type="audio/wav"></source>
+        <source src="audio/bomb.mp3" type="audio/mpeg"></source>
+        <source src="audio/mark.wav" type="audio/wav"></source>
+        <source src="audio/win.wav" type="audio/wav"></source>
+      </audio> -->
+      <audio id="click-audio" src="audio/click.wav"></audio>
+      <audio id="bomb-audio" src="audio/bomb.mp3"></audio>
+      <audio id="mark-audio" src="audio/mark.wav"></audio>
+      <audio id="win-audio" src="audio/win.wav"></audio>
     </div>
     <div class="board"></div>
     <div class="button-container">
