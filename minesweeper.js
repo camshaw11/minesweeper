@@ -8,17 +8,17 @@ const resetBtn = document.querySelector(".reset");
 const boardDiv = document.querySelector(".board");
 
 // sound effects
-let clickSound = new Audio("/audio/click.wav");
-let failSound = new Audio("/audio/bomb.mp3");
-let markSound = new Audio("/audio/mark.wav");
-let winSound = new Audio("/audio/win.wav");
+let clickSound = document.getElementsByTagName("audio")[0];
+let failSound = document.getElementsByTagName("audio")[1];
+let markSound = document.getElementsByTagName("audio")[2];
+let winSound = document.getElementsByTagName("audio")[3];
 
 
 // listen for clicks on the reset button and run function
 resetBtn.addEventListener("click", function() {
   // clear board object
   board = {};
-  
+
   clickSound.play();
 
   // remove all content inside the board div
