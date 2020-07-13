@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 html, body {
-  /* height: 100%; */
   font-family: 'Open Sans', sans-serif
 }
 
@@ -10,7 +9,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: coral;
+  /* background-color: coral; */
+  background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
 }
 
 #message, #notes {
@@ -41,26 +41,22 @@ p {
   font-size: 2rem;
   width: 75px;
   height: 75px;
-  /* border: 1px #ccc solid; */
   border-radius: 10%;
   background-color: #bdbdbd33;
   margin: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* box-shadow: inset -1px 0px 43px 12px #ff7f50; */
 
 }
 
 .board div:hover {
-  /* background-color: #ff7f50; */
-  /* box-shadow: inset -1px 0px 43px 12px #ff7f50; */
   box-shadow: inset 0px 0px 5px 1px #3a2d2d;
 }
 
 .clicked {
   box-shadow: inset 0px 0px 5px 1px #3a2d2d;
-
+  cursor: default;
 }
 
 div.mine, div.mine:hover {
